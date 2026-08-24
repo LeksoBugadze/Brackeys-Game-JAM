@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://cw7ntrobdcatp"]
+
+[ext_resource type="Script" uid="uid://b76qw00yd4fi3" path="res://Scripts/blood_spell_projectile.gd" id="1_hyp55"]
+[ext_resource type="Shader" uid="uid://cqhqog4baptc5" path="res://Fireball_VFX/fireball_shader.tres" id="2_lfq4g"]
+[ext_resource type="ArrayMesh" uid="uid://cb1oegfjgph1" path="res://Fireball_VFX/fireball_mesh.obj" id="3_r7tm7"]
+[ext_resource type="Shader" uid="uid://d27kmuc4o0b4t" path="res://Fireball_VFX/FireHeader_shader.tres" id="4_3hwdb"]
+[ext_resource type="Shader" uid="uid://fn3t88rl0t5y" path="res://Fireball_VFX/Trail_Shader.tres" id="5_c24kc"]
+[ext_resource type="Texture2D" uid="uid://06msxrtjbwce" path="res://Fireball_VFX/T_VFX_basic1.PNG" id="6_obn4j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4nwb"]
+render_priority = 1
+shader = ExtResource("2_lfq4g")
+shader_parameter/Fire_Color = Color(0.762335, 0, 0, 1)
+shader_parameter/Speed = Vector2(0.25, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cdoe0"]
+render_priority = 0
+shader = ExtResource("4_3hwdb")
+shader_parameter/Ball_Color = Color(0.94195384, 0, 0, 1)
+shader_parameter/Frensel_Power = 4.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_f4nwb"]
+
+[sub_resource type="Gradient" id="Gradient_qne6x"]
+offsets = PackedFloat32Array(0, 0.2761194, 0.9604938, 1)
+colors = PackedColorArray(0.52026945, 1.4980697e-06, 3.3691526e-07, 0, 0.25552103, 1.5101023e-06, 7.70092e-07, 1, 1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_i38y5"]
+gradient = SubResource("Gradient_qne6x")
+use_hdr = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jrd63"]
+render_priority = 0
+shader = ExtResource("5_c24kc")
+shader_parameter/Color_Texture = SubResource("GradientTexture1D_i38y5")
+shader_parameter/Trail_Speed = Vector2(2, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_f4nwb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w0mh7"]
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("6_obn4j")
+
+[sub_resource type="Curve" id="Curve_ieyp4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5sf6k"]
+curve = SubResource("Curve_ieyp4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jrd63"]
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 0.5
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+initial_velocity_min = 3.0
+initial_velocity_max = 8.0
+radial_velocity_min = 0.99997765
+radial_velocity_max = 1.9999776
+gravity = Vector3(0, 0, 0)
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_5sf6k")
+color = Color(0.8972594, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_cdoe0"]
+size = Vector2(0.1, 0.5)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+
+[node name="BloodSpell" type="CharacterBody3D" unique_id=1066162322]
+collision_layer = 4
+script = ExtResource("1_hyp55")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=111727990]
+transform = Transform3D(-2.1855694e-08, 0, 0.8254062, 0, 0.5, 0, -0.5, 0, -3.607965e-08, -0.20600009, 0, 0)
+material_override = SubResource("ShaderMaterial_f4nwb")
+cast_shadow = 0
+mesh = ExtResource("3_r7tm7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=987549403]
+transform = Transform3D(-3.059797e-08, 0, 1.1466515, 0, 0.7, 0, -0.7, 0, -5.012173e-08, 0.07421103, 0, 0)
+material_override = SubResource("ShaderMaterial_cdoe0")
+mesh = SubResource("SphereMesh_f4nwb")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1022780807]
+transform = Transform3D(3.2872224, 0, 0, 0, 0.68558544, 0, 0, 0, 1, -1.3301623, 0, 0)
+material_override = SubResource("ShaderMaterial_jrd63")
+mesh = SubResource("QuadMesh_f4nwb")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1846292215]
+transform = Transform3D(3.2872221, 0, 0, 0, -2.9066978e-08, 1.0000001, 0, -0.66497487, -4.371139e-08, -1.3301623, 0, 0)
+material_override = SubResource("ShaderMaterial_jrd63")
+mesh = SubResource("QuadMesh_f4nwb")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=951995521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.447871, 0, 0)
+material_override = SubResource("StandardMaterial3D_w0mh7")
+amount = 10
+lifetime = 0.3
+explosiveness = 0.4
+process_material = SubResource("ParticleProcessMaterial_jrd63")
+draw_pass_1 = SubResource("QuadMesh_cdoe0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1236421]
+shape = SubResource("SphereShape3D_g4v7s")
