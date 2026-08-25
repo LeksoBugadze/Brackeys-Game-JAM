@@ -17,6 +17,12 @@ func _ready() -> void:
 	if !enemy_pos_arr.is_empty():
 		spawn_enemies(enemy_pos_arr)
 	print(enemy_pos_arr)
+	
+func _physics_process(_delta: float) -> void:
+	if current_enemy_count <= 0:
+		while enemy_count>current_enemy_count:
+			add_enemy_position()
+		spawn_enemies(enemy_pos_arr)
 
 func spawn_enemies(enemy_pos_array):
 	for enemy_pos_vec in enemy_pos_array:

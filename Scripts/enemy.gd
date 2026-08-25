@@ -4,6 +4,8 @@ var movement_speed :float = 2.5
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var damage_range: Area3D = $damageRange
 
+var health : float = 100.0
+
 var player : CharacterBody3D = null
 var can_attack = false
 
@@ -11,6 +13,10 @@ func _ready() -> void:
 	player = get_tree().get_nodes_in_group("player")[0]
 
 func _process(_delta: float) -> void:
+	if health <=0:
+		get_tree().current_scene.current_enemy_count -= 1
+		queue_free()
+	
 	navigation_agent_3d.set_target_position(player.global_position)
 
 func _physics_process(_delta: float) -> void:
@@ -23,10 +29,11 @@ func _physics_process(_delta: float) -> void:
 		return
 	
 	var next_position:Vector3 = navigation_agent_3d.get_next_path_position()
-	
 	velocity = global_position.direction_to( next_position ) * movement_speed
-	
 	move_and_slide()
 	
 func _on_timer_timeout() -> void:
 	can_attack = true
+
+func take_damage(damage:float)->void:
+	health-=damage

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bng4diwyut6y4"]
 
 [ext_resource type="Script" uid="uid://cb7hjbv0xh8vu" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="PackedScene" uid="uid://dngf8dmaldhsg" path="res://Scenes/blood_spell_ability.tscn" id="2_cvnsp"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_yf5fn"]
 
@@ -52,3 +53,5 @@ theme_override_font_sizes/font_size = 12
 text = "100/100"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BloodSpell" parent="." unique_id=38817197 instance=ExtResource("2_cvnsp")]
