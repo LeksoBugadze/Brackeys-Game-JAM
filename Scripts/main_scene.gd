@@ -78,6 +78,6 @@ func get_random_point(area)-> Vector3:
 
 func _on_timer_timeout() -> void:
 	timer.stop()
-	for child_enemy in enemy_container.get_children():
-		child_enemy.free()
+	#for child_enemy in enemy_container.get_children():
+		#child_enemy.free()
 	cleared = true

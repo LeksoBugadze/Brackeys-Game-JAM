@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://vscd7f8ufm20"]
+
+[ext_resource type="Script" uid="uid://o24v0wxeh607" path="res://Scripts/Buffs/Lightning_Spell/wrath_of_the_skies_buff.gd" id="1_k58fm"]
+
+[node name="wrath_of_the_skies_buff" type="Node3D" unique_id=1097032904]
+script = ExtResource("1_k58fm")
