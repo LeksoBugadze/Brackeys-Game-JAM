@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://kclu5hww2yjx"]
+
+[ext_resource type="Script" uid="uid://0o6fxbj01bdd" path="res://Scripts/Buffs/Blood_Spell/phasing_blood_buff.gd" id="1_gaess"]
+
+[node name="phasing_blood" type="Node3D" unique_id=1620776184]
+script = ExtResource("1_gaess")

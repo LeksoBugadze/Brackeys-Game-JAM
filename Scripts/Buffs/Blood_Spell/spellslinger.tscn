@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://64w0l3votj62"]
+
+[ext_resource type="Script" uid="uid://dgxcks6tgp0i" path="res://Scripts/Buffs/Blood_Spell/spellslinger_buff.gd" id="1_uhs1d"]
+
+[node name="Spellslinger" type="Node3D" unique_id=1109212876]
+script = ExtResource("1_uhs1d")

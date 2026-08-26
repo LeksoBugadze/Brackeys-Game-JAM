@@ -75,7 +75,7 @@ size = Vector2(0.1, 0.5)
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
 radius = 0.34735018
 
-[node name="BloodSpell" type="CharacterBody3D" unique_id=1066162322]
+[node name="BloodSpell" type="CharacterBody3D" unique_id=1282640442]
 collision_layer = 4
 script = ExtResource("1_hyp55")
 
@@ -112,3 +112,9 @@ draw_pass_1 = SubResource("QuadMesh_cdoe0")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1236421]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -0.81006306)
 shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="Timer" type="Timer" parent="." unique_id=1822090210]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

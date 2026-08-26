@@ -3,16 +3,18 @@
 [ext_resource type="Script" uid="uid://rmw30otasb70" path="res://Scripts/main_scene.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://bng4diwyut6y4" path="res://Scenes/player.tscn" id="1_52fb6"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_52fb6"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6l7je"]
+sky_top_color = Color(0.17258406, 0.010655264, 2.466701e-07, 1)
+sky_horizon_color = Color(0.1349434, 0.062344547, 0.059680793, 1)
+ground_bottom_color = Color(0.12846664, 1.504086e-09, 9.024516e-09, 1)
+ground_horizon_color = Color(0.1349434, 0.062344547, 0.059680793, 1)
 
-[sub_resource type="Sky" id="Sky_6l7je"]
-sky_material = SubResource("ProceduralSkyMaterial_52fb6")
+[sub_resource type="Sky" id="Sky_jv6wh"]
+sky_material = SubResource("ProceduralSkyMaterial_6l7je")
 
-[sub_resource type="Environment" id="Environment_jv6wh"]
+[sub_resource type="Environment" id="Environment_x6ack"]
 background_mode = 2
-sky = SubResource("Sky_6l7je")
+sky = SubResource("Sky_jv6wh")
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
@@ -22,6 +24,9 @@ size = Vector3(31, 0.001, 31)
 vertices = PackedVector3Array(-15.2505, 0.45, -15.250502, -15.2505, 0.45, 15.499498, 15.4995, 0.45, 15.499498, 15.4995, 0.45, -15.250502)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iacmt"]
+albedo_color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(0.001, 3, 32)
 
@@ -30,11 +35,12 @@ script = ExtResource("1_6l7je")
 
 [node name="Lighting" type="Node3D" parent="." unique_id=718802739]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Lighting" unique_id=129738164]
-environment = SubResource("Environment_jv6wh")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Lighting" unique_id=820667949]
+environment = SubResource("Environment_x6ack")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting" unique_id=501744777]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting" unique_id=1811388038]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.7824761, 0.360475, 0.25887948, 1)
 shadow_enabled = true
 
 [node name="Player" parent="." unique_id=2144288050 instance=ExtResource("1_52fb6")]
@@ -54,6 +60,7 @@ shape = SubResource("BoxShape3D_yf5fn")
 navigation_mesh = SubResource("NavigationMesh_g4v7s")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1979597973]
+material_override = SubResource("StandardMaterial3D_iacmt")
 use_collision = true
 collision_layer = 3
 size = Vector3(32, 0.1, 32)
@@ -77,3 +84,18 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1
 shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="Timer" type="Timer" parent="." unique_id=49532804]
+wait_time = 10.0
+
+[node name="enemyContainer" type="Node3D" parent="." unique_id=776129670]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2020068672]
+
+[node name="Time_label" type="Label" parent="CanvasLayer" unique_id=768817559]
+offset_left = 1016.0
+offset_right = 1144.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 26
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -13,7 +13,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
@@ -31,7 +30,7 @@ func _physics_process(delta: float) -> void:
 
 func update_health_bar()->void:
 	health_bar.value = current_health
-	health_label.text = str(current_health)+ "/" + str(max_health) 
+	health_label.text = str(int(current_health))+ "/" + str(int(max_health)) 
 	
 	
 func take_damage(damage:float):
