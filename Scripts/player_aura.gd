@@ -1,7 +1,6 @@
 extends Area3D
 
 @export var damage: float = 20
-@export var frequency: float = 2.5 
 
 
 

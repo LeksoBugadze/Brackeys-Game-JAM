@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blagyd23ohw5k"
-path.s3tc="res://.godot/imported/Slash_texture.png-11a0e477df7a28b232dee537793659b8.s3tc.ctex"
+uid="uid://cstvxoxocnuqm"
+path.s3tc="res://.godot/imported/vfx_try.png-16b7a4245323f0af65bac5a7d7d7dff9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Slash_VFX/Slash_texture.png"
-dest_files=["res://.godot/imported/Slash_texture.png-11a0e477df7a28b232dee537793659b8.s3tc.ctex"]
+source_file="res://Slash_VFX/vfx_try.png"
+dest_files=["res://.godot/imported/vfx_try.png-16b7a4245323f0af65bac5a7d7d7dff9.s3tc.ctex"]
 
 [params]
 
