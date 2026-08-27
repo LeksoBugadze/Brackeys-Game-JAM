@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://di6x8fduojokw"]
+
+[ext_resource type="Script" uid="uid://jaxh4b0i4vwo" path="res://Scripts/Buffs/Player_Aura/fast_aura.gd" id="1_saeet"]
+
+[node name="AuraBuff" type="Node3D" unique_id=1040613583]
+script = ExtResource("1_saeet")
