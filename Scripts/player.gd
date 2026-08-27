@@ -34,6 +34,6 @@ func update_health_bar()->void:
 	
 	
 func take_damage(damage:float):
-	print("damage taken")
+	#print("damage taken")
 	current_health -=damage
 	update_health_bar()
