@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://25besnnr1n4n"]
+
+[ext_resource type="Shader" uid="uid://bvs6beorfrdbx" path="res://Materials/damage_flash_shader.tres" id="1_a2asx"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_a2asx")
+shader_parameter/ColorParameter = Color(1, 1, 1, 1)

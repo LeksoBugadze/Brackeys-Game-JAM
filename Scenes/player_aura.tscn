@@ -25,7 +25,7 @@ debug_color = Color(0.6990291, 0.4920342, 0.083491676, 0.41960785)
 mesh = SubResource("SphereMesh_bhunq")
 
 [node name="Timer" type="Timer" parent="." unique_id=2094326075]
-wait_time = 2.5
+wait_time = 0.5
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

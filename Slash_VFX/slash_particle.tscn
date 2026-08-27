@@ -6,10 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://dkmtb4utcwxiy" path="res://Slash_VFX/vfx_hi.png" id="3_6hlev"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p7as0"]
-size = Vector3(0.9102173, 0.6484375, 0.5341797)
+size = Vector3(2, 0.6484375, 1.3095703)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_klcbo"]
 gravity = Vector3(0, 0, 0)
+scale_min = 1.8
+scale_max = 1.8
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ocyg7"]
 
@@ -62,7 +64,6 @@ shadow_mesh = SubResource("ArrayMesh_sa82d")
 
 [sub_resource type="Animation" id="Animation_4wkt5"]
 length = 0.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -118,13 +119,14 @@ _data = {
 script = ExtResource("1_p7as0")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=2011075823]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1281679693]
-transform = Transform3D(2.175, 0, 0, 0, 2.175, 0, 0, 0, 2.175, 0.015067287, 0, -0.5850593)
+transform = Transform3D(2.175, 0, 0, 0, 2.175, 0, 0, 0, 2.175, 0.11421413, 0, -0.8907859)
 shape = SubResource("BoxShape3D_p7as0")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1030962694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_klcbo")
 draw_pass_1 = SubResource("ArrayMesh_b52v7")
