@@ -10,12 +10,15 @@ var enemy = preload("res://Scenes/Enemy.tscn")
 
 var blood_spell = preload("res://Scenes/blood_spell_ability.tscn")
 var lightning_spell = preload("res://Scenes/lightning_strike_ability.tscn")
+var player_aura = preload("res://Scenes/player_aura.tscn");
+var player_slash = preload("res://Scenes/slash_particle.tscn");
 
 var enemy_count = 3
 var enemy_pos_arr = []
 var current_enemy_count = 0
 var wave_time :float = 20.0
 var cleared = true
+
 
 func _ready() -> void:
 	start_wave()
@@ -30,6 +33,11 @@ func _physics_process(_delta: float) -> void:
 		
 	if Input.is_action_just_pressed("add_lightning_spell"):
 		player.add_child(lightning_spell.instantiate())
+		
+	if Input.is_action_just_pressed("aura_enable"):
+			player.add_child(player_aura.instantiate())
+	if Input.is_action_just_pressed("slash_hit"):
+		player.add_child(player_slash.instantiate())
 		
 	time_label.text = str(int(timer.time_left))
 	if cleared == false:
