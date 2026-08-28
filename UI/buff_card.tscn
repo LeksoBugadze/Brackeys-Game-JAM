@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://c3frc3k3q0hrl"]
+
+[ext_resource type="Texture2D" uid="uid://b5grd5d5wv50g" path="res://UI/Icons/blood_spell.png" id="1_m17qa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0.0006938975, 0.0006938978, 0.00069389684, 0.39215687)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_6l7je"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xm5fh"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Panel" type="Panel" unique_id=1983787965]
+custom_minimum_size = Vector2(200, 250)
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1860956257]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer" unique_id=979382414]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="title" type="Label" parent="VBoxContainer/MarginContainer3" unique_id=1388012452]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_6l7je")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=363808550]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer" unique_id=1255829636]
+custom_maximum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_m17qa")
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=1279259659]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="description" type="Label" parent="VBoxContainer/MarginContainer2" unique_id=1341344008]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+text = "jkhlkjlk"
+label_settings = SubResource("LabelSettings_xm5fh")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer" unique_id=10531831]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="debuff" type="Label" parent="VBoxContainer/MarginContainer4" unique_id=206315719]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+text = "jkhlkjlk"
+label_settings = SubResource("LabelSettings_xm5fh")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

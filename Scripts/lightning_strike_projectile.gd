@@ -12,7 +12,6 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node3D) -> void:
-	print(body)
 	if hit ==false:
 		hit = true
 		collided_lightning.emit(body)

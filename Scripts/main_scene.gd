@@ -5,13 +5,16 @@ extends Node3D
 @onready var timer: Timer = $Timer
 @onready var time_label: Label = $CanvasLayer/Time_label
 @onready var spawn_area: Area3D = $SpawnArea
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
 
 var enemy = preload("res://Scenes/Enemy.tscn")
 
+var upgrade_scene = preload("res://UI/ability_scene.tscn")
+
 var blood_spell = preload("res://Scenes/blood_spell_ability.tscn")
 var lightning_spell = preload("res://Scenes/lightning_strike_ability.tscn")
-var player_aura = preload("res://Scenes/player_aura.tscn");
-var player_slash = preload("res://Slash_VFX/slash_particle.tscn")
+var player_aura = preload("res://Fire_Aura_VFX/player_aura.tscn");
+var player_slash = preload("res://Slash_VFX/slash_ability.tscn")
 
 var enemy_count = 3
 var enemy_pos_arr = []
@@ -19,9 +22,11 @@ var current_enemy_count = 0
 var wave_time :float = 20.0
 var cleared = true
 
+var wave_count = 1
+
 
 func _ready() -> void:
-	start_wave()
+	canvas_layer.add_child(upgrade_scene.instantiate())
 	
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("test_start_new_wave"):
@@ -38,7 +43,7 @@ func _physics_process(_delta: float) -> void:
 		player.add_child(player_aura.instantiate())
 			
 	if Input.is_action_just_pressed("slash_hit"):
-		player.get_node_or_null("MeshInstance3D").add_child(player_slash.instantiate())
+		player.add_child(player_slash.instantiate())
 		
 	time_label.text = str(int(timer.time_left))
 	if cleared == false:
@@ -58,6 +63,7 @@ func start_wave():
 		if !enemy_pos_arr.is_empty():
 			spawn_enemies(enemy_pos_arr)
 		print(enemy_pos_arr)
+		wave_count+=1
 	cleared = false
 
 func spawn_enemies(enemy_pos_array):
@@ -87,6 +93,15 @@ func get_random_point(area)-> Vector3:
 
 func _on_timer_timeout() -> void:
 	timer.stop()
-	#for child_enemy in enemy_container.get_children():
-		#child_enemy.free()
+	for child_enemy in enemy_container.get_children():
+		child_enemy.free()
+		
 	cleared = true
+	
+	if wave_count % 3 == 0:
+		canvas_layer.add_child(upgrade_scene.instantiate())
+	else:
+		current_enemy_count = 0
+		start_wave()
+		
+	

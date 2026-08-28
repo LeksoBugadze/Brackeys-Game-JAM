@@ -24,8 +24,8 @@ size = Vector3(31, 0.001, 31)
 vertices = PackedVector3Array(-15.2505, 0.45, -15.250502, -15.2505, 0.45, 15.499498, 15.4995, 0.45, 15.499498, 15.4995, 0.45, -15.250502)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iacmt"]
-albedo_color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nere1"]
+albedo_color = Color(0.051970966, 0.05197096, 0.05197095, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(0.001, 3, 32)
@@ -60,7 +60,7 @@ shape = SubResource("BoxShape3D_yf5fn")
 navigation_mesh = SubResource("NavigationMesh_g4v7s")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1979597973]
-material_override = SubResource("StandardMaterial3D_iacmt")
+material_override = SubResource("StandardMaterial3D_nere1")
 use_collision = true
 collision_layer = 3
 size = Vector3(32, 0.1, 32)

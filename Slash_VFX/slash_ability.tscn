@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://dqpj608wd58y0"]
 
-[ext_resource type="Script" uid="uid://c0i36uxewu2va" path="res://Scripts/slash.gd" id="1_p7as0"]
-[ext_resource type="Shader" uid="uid://bjwqf1k0wodqf" path="res://Slash_VFX/slash_particle.tres" id="1_u306w"]
-[ext_resource type="Texture2D" uid="uid://cstvxoxocnuqm" path="res://Slash_VFX/vfx_try.png" id="2_p7as0"]
-[ext_resource type="Texture2D" uid="uid://dkmtb4utcwxiy" path="res://Slash_VFX/vfx_hi.png" id="3_6hlev"]
+[ext_resource type="Script" uid="uid://c0i36uxewu2va" path="res://Scripts/slash.gd" id="1_nwise"]
+[ext_resource type="Shader" uid="uid://bjwqf1k0wodqf" path="res://Slash_VFX/slash_particle.tres" id="2_n3ro2"]
+[ext_resource type="Texture2D" uid="uid://cstvxoxocnuqm" path="res://Slash_VFX/vfx_try.png" id="3_5xub6"]
+[ext_resource type="Texture2D" uid="uid://dkmtb4utcwxiy" path="res://Slash_VFX/vfx_hi.png" id="4_g04ow"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p7as0"]
 size = Vector3(2, 0.6484375, 1.3095703)
@@ -20,12 +20,12 @@ noise = SubResource("FastNoiseLite_ocyg7")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_78ewg"]
 render_priority = 0
-shader = ExtResource("1_u306w")
+shader = ExtResource("2_n3ro2")
 shader_parameter/ColorParameter = Color(0.9997465, 0.24573597, 0.18828416, 1)
 shader_parameter/progress = -1.03
-shader_parameter/Base_texture = ExtResource("2_p7as0")
+shader_parameter/Base_texture = ExtResource("3_5xub6")
 shader_parameter/ColorParameter2 = Color(1, 0.6039216, 0.6745098, 1)
-shader_parameter/Highlight = ExtResource("3_6hlev")
+shader_parameter/Highlight = ExtResource("4_g04ow")
 shader_parameter/Dissolve_texture = SubResource("NoiseTexture2D_4wkt5")
 shader_parameter/FloatParameter = -2.0
 
@@ -116,7 +116,7 @@ _data = {
 }
 
 [node name="player_slash" type="Node3D" unique_id=713446022]
-script = ExtResource("1_p7as0")
+script = ExtResource("1_nwise")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=2011075823]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 1)

@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dkpyq5htp40pq"]
+
+[ext_resource type="Script" uid="uid://da1ekn1pcyac0" path="res://Scripts/player_aura.gd" id="1_aqox6"]
+[ext_resource type="Shader" uid="uid://usyritqt0kbt" path="res://Fire_Aura_VFX/fire_aura_s.tres" id="2_5nspm"]
+[ext_resource type="Texture2D" uid="uid://dydim4hm6g0mn" path="res://Fire_Aura_VFX/T_Noise_HU85k.png" id="3_m073c"]
+[ext_resource type="ArrayMesh" uid="uid://bcmmxsgdmjsmw" path="res://Fire_Aura_VFX/fire_aura.obj" id="4_clthl"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i1e56"]
+height = 0.68359375
+radius = 4.0
+
+[sub_resource type="Gradient" id="Gradient_a8uq4"]
+offsets = PackedFloat32Array(0, 0.22302158, 0.4436451, 0.73860914, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.32018086, 0.017168654, 0, 0.22079492, 0.95, 0.07916664, 0, 0.4392157, 0.99291754, 0.35227174, 0, 0.7607843, 1.494973, 1.0236146, 0.3637131, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eiybm"]
+gradient = SubResource("Gradient_a8uq4")
+use_hdr = true
+
+[sub_resource type="Gradient" id="Gradient_gp64o"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nere1"]
+gradient = SubResource("Gradient_gp64o")
+use_hdr = true
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_67o0l"]
+offsets = PackedFloat32Array(0, 0.13669065, 0.5371703, 0.56354916, 0.793765, 1)
+colors = PackedColorArray(0.9411765, 0.9411765, 0.9411765, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48178947, 0.48178947, 0.48178947, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i1e56"]
+gradient = SubResource("Gradient_67o0l")
+use_hdr = true
+fill_from = Vector2(1, 1)
+fill_to = Vector2(1, 0.61538464)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p8p06"]
+render_priority = 0
+shader = ExtResource("2_5nspm")
+shader_parameter/Speed = Vector2(0, 1)
+shader_parameter/Vector2Parameter = Vector2(2, 1)
+shader_parameter/Texture_base = ExtResource("3_m073c")
+shader_parameter/Texture_add = SubResource("GradientTexture2D_nere1")
+shader_parameter/Texture_substract = SubResource("GradientTexture2D_i1e56")
+shader_parameter/Color_Palette = SubResource("GradientTexture1D_eiybm")
+
+[node name="Player_aura" type="Area3D" unique_id=1182517256]
+monitorable = false
+script = ExtResource("1_aqox6")
+
+[node name="DamageSpehere" type="CollisionShape3D" parent="." unique_id=970510509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.70206714, 0)
+shape = SubResource("CylinderShape3D_i1e56")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1483624782]
+transform = Transform3D(3, 0, 0, 0, 1.5, 0, 0, 0, 3, 0, -1.092804, 0)
+material_override = SubResource("ShaderMaterial_p8p06")
+mesh = ExtResource("4_clthl")
+
+[node name="Timer" type="Timer" parent="." unique_id=2094326075]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
