@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://b8u3drwchyovr"]
+
+[ext_resource type="Script" uid="uid://dnoj86no5nt4f" path="res://UI/start/start_menu.gd" id="1_613p6"]
+[ext_resource type="FontFile" uid="uid://e4to3ei544os" path="res://UI/fonts/Deutsch.ttf" id="2_ge7er"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_riqys"]
+bg_color = Color(0.61188334, 0.08616675, 0.22621992, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhunq"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngoy5"]
+bg_color = Color(0.9272345, 0.424629, 0.33820042, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsy1u"]
+bg_color = Color(0.9254902, 0.42352942, 0.3372549, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s6uxk"]
+
+[node name="StartMenu" type="Control" unique_id=678187868]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_613p6")
+
+[node name="Panel" type="Panel" parent="." unique_id=152372280]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_riqys")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=503855043]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 34.0
+offset_top = -126.0
+offset_right = 349.0
+offset_bottom = 97.0
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=847915353]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029506527, 0.029506546, 0.029506704, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ge7er")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_bhunq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ngoy5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gsy1u")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s6uxk")
+text = "Start"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=2108142251]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029506527, 0.029506546, 0.029506704, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ge7er")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_bhunq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ngoy5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gsy1u")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s6uxk")
+text = "Settings"
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1774359915]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029506527, 0.029506546, 0.029506704, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ge7er")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_bhunq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ngoy5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gsy1u")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s6uxk")
+text = "Quit"
+
+[node name="Label" type="Label" parent="." unique_id=851193821]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -323.0
+offset_right = 314.0
+offset_bottom = -156.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ge7er")
+theme_override_font_sizes/font_size = 71
+text = "Insecure"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_buttonstart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_buttonsettings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_buttonquit_pressed"]

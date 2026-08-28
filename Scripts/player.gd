@@ -15,6 +15,10 @@ func _ready() -> void:
 	update_health_bar()
 
 func _physics_process(delta: float) -> void:
+	if current_health <= 0: 
+		get_tree().change_scene_to_file("res://UI/fail/Dead_menu.tscn")
+	
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
