@@ -6,6 +6,7 @@ extends Node3D
 @onready var time_label: Label = $CanvasLayer/Time_label
 @onready var spawn_area: Area3D = $SpawnArea
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var canvas_layer_2: CanvasLayer = $CanvasLayer2
 
 var enemy = preload("res://Scenes/Enemy.tscn")
 
@@ -15,6 +16,8 @@ var blood_spell = preload("res://Scenes/blood_spell_ability.tscn")
 var lightning_spell = preload("res://Scenes/lightning_strike_ability.tscn")
 var player_aura = preload("res://Fire_Aura_VFX/player_aura.tscn");
 var player_slash = preload("res://Slash_VFX/slash_ability.tscn")
+var pause_meny = preload("res://UI/pause/Pause_menu.tscn")
+
 
 var enemy_count = 3
 var enemy_pos_arr = []
@@ -43,8 +46,13 @@ func _physics_process(_delta: float) -> void:
 		player.add_child(player_aura.instantiate())
 			
 	if Input.is_action_just_pressed("slash_hit"):
-		player.add_child(player_slash.instantiate())
+		player.get_node_or_null("MeshInstance3D").add_child(player_slash.instantiate())
 		
+	if Input.is_action_just_pressed("pause"):
+		get_tree().paused = true
+		canvas_layer_2.add_child(pause_meny.instantiate())
+		
+	
 	time_label.text = str(int(timer.time_left))
 	if cleared == false:
 		if current_enemy_count <= 0:
