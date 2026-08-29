@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c3frc3k3q0hrl"]
 
+[ext_resource type="FontFile" uid="uid://e4to3ei544os" path="res://UI/fonts/Deutsch.ttf" id="1_70r18"]
 [ext_resource type="Texture2D" uid="uid://b5grd5d5wv50g" path="res://UI/Icons/blood_spell.png" id="1_m17qa"]
+[ext_resource type="Script" uid="uid://snbfpt7inx1v" path="res://UI/buff_card.gd" id="2_xtclr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
 bg_color = Color(0.0006938975, 0.0006938978, 0.00069389684, 0.39215687)
@@ -15,16 +17,26 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_6l7je"]
+font = ExtResource("1_70r18")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xtclr"]
+font = ExtResource("1_70r18")
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xm5fh"]
+font = ExtResource("1_70r18")
+font_size = 25
+font_color = Color(1, 0.43481088, 0.36613947, 1)
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Panel" type="Panel" unique_id=1983787965]
 custom_minimum_size = Vector2(200, 250)
 theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+script = ExtResource("2_xtclr")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1860956257]
 layout_mode = 1
@@ -65,12 +77,13 @@ theme_override_constants/margin_bottom = 5
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 text = "jkhlkjlk"
-label_settings = SubResource("LabelSettings_xm5fh")
+label_settings = SubResource("LabelSettings_xtclr")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer" unique_id=10531831]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5

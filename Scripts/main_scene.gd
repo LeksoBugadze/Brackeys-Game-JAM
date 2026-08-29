@@ -7,10 +7,12 @@ extends Node3D
 @onready var spawn_area: Area3D = $SpawnArea
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var canvas_layer_2: CanvasLayer = $CanvasLayer2
+@onready var wave_count_label: Label = $CanvasLayer/Wave_count
 
 var enemy = preload("res://Scenes/Enemy.tscn")
 
 var upgrade_scene = preload("res://UI/ability_scene.tscn")
+var buff_scene = preload("res://UI/select_buff.tscn")
 
 var blood_spell = preload("res://Scenes/blood_spell_ability.tscn")
 var lightning_spell = preload("res://Scenes/lightning_strike_ability.tscn")
@@ -22,9 +24,10 @@ var pause_meny = preload("res://UI/pause/Pause_menu.tscn")
 var enemy_count = 3
 var enemy_pos_arr = []
 var current_enemy_count = 0
-var wave_time :float = 20.0
+var wave_time :float = 0.0
 var cleared = true
 
+var max_wave = 10
 var wave_count = 1
 
 
@@ -61,6 +64,8 @@ func _physics_process(_delta: float) -> void:
 			spawn_enemies(enemy_pos_arr)
 			
 func start_wave():
+	update_wave_counter()
+	wave_time += 5
 	if cleared == true:
 		timer.wait_time = wave_time
 		timer.start()
@@ -105,11 +110,14 @@ func _on_timer_timeout() -> void:
 		child_enemy.free()
 		
 	cleared = true
-	
-	if wave_count % 3 == 0:
+	if wave_count % 2 == 0:
+		canvas_layer.add_child(buff_scene.instantiate())
+	elif wave_count % 3 == 0:
 		canvas_layer.add_child(upgrade_scene.instantiate())
 	else:
 		current_enemy_count = 0
 		start_wave()
 		
+func update_wave_counter():
+	wave_count_label.text = str(wave_count) + "/" + str(max_wave)
 	

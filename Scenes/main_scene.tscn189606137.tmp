@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://rmw30otasb70" path="res://Scripts/main_scene.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://bng4diwyut6y4" path="res://Scenes/player.tscn" id="1_52fb6"]
-[ext_resource type="FontFile" uid="uid://e4to3ei544os" path="res://UI/fonts/Deutsch.ttf" id="3_jv6wh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6l7je"]
 sky_top_color = Color(0.17258406, 0.010655264, 2.466701e-07, 1)
@@ -30,24 +29,6 @@ albedo_color = Color(0.051970966, 0.05197096, 0.05197095, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(0.001, 3, 32)
-
-[sub_resource type="LabelSettings" id="LabelSettings_x6ack"]
-font = ExtResource("3_jv6wh")
-font_size = 40
-outline_size = 3
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
-font = ExtResource("3_jv6wh")
-font_size = 30
-outline_size = 3
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_yf5fn"]
-font = ExtResource("3_jv6wh")
-font_size = 35
-outline_size = 3
-outline_color = Color(0, 0, 0, 1)
 
 [node name="Main_Scene" type="Node3D" unique_id=2069007597]
 script = ExtResource("1_6l7je")
@@ -111,32 +92,10 @@ wait_time = 10.0
 
 [node name="Time_label" type="Label" parent="CanvasLayer" unique_id=768817559]
 offset_left = 1016.0
-offset_top = 128.0
 offset_right = 1144.0
-offset_bottom = 176.0
+offset_bottom = 48.0
 theme_override_font_sizes/font_size = 26
-label_settings = SubResource("LabelSettings_x6ack")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Wave_count" type="Label" parent="CanvasLayer" unique_id=713264142]
-offset_left = 992.0
-offset_top = 56.0
-offset_right = 1160.0
-offset_bottom = 104.0
-label_settings = SubResource("LabelSettings_g4v7s")
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=643258058]
-offset_left = 1024.0
-offset_top = 8.0
-offset_right = 1123.0
-offset_bottom = 56.0
-text = "Wave"
-label_settings = SubResource("LabelSettings_yf5fn")
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=106273002]

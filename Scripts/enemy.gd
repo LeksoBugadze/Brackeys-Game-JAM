@@ -4,17 +4,28 @@ var movement_speed :float = 2.5
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var damage_range: Area3D = $damageRange
 @onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
+@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 
 var damage_flash_material = preload("res://Materials/damage_flash_material.tres")
+var summoning_circle = preload("res://VFX_etc_summon/summoning_circle.tscn")
+
 
 var health : float = 100.0
 var knocked :bool = false
-var chase :bool = true
+var chase :bool = false
 var player : CharacterBody3D = null
 var can_attack = false
 
 func _ready() -> void:
 	player = get_tree().get_nodes_in_group("player")[0]
+	var cirlce = summoning_circle.instantiate()
+	add_child(cirlce)
+	cirlce.global_position = Vector3(global_position.x,-0.5,global_position.z)
+	await get_tree().create_timer(1.5).timeout
+	cirlce.queue_free()
+	mesh_instance_3d.visible = true
+	collision_shape_3d.disabled = false
+	chase = true
 
 func _process(_delta: float) -> void:
 	if health <=0:
@@ -40,7 +51,7 @@ func _physics_process(_delta: float) -> void:
 		
 		var next_position:Vector3 = navigation_agent_3d.get_next_path_position()
 		velocity = global_position.direction_to( next_position ) * movement_speed
-	move_and_slide()
+		move_and_slide()
 	
 func _on_timer_timeout() -> void:
 	can_attack = true

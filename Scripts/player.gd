@@ -8,6 +8,10 @@ const SPEED = 3.0
 const JUMP_VELOCITY = 4.5
 var max_health :float = 100.0
 var current_health :float = max_health
+var dead = false
+
+var current_keys = []
+var current_buff_keys = []
 
 var last_direction = Vector3.FORWARD
 
@@ -17,25 +21,26 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if current_health <= 0: 
 		get_tree().change_scene_to_file("res://UI/fail/Dead_menu.tscn")
+		dead = true
 	
-	
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	if dead == false:
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+			
+		var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
-	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
-	if direction:
-		last_direction = direction
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		if direction:
+			last_direction = direction
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
+			
+		mesh_instance_3d.rotation.y = lerp_angle(mesh_instance_3d.rotation.y, atan2(-last_direction.x,-last_direction.z), 8 * delta)
 		
-	mesh_instance_3d.rotation.y = lerp_angle(mesh_instance_3d.rotation.y, atan2(-last_direction.x,-last_direction.z), 8 * delta)
-	
-	move_and_slide()
+		move_and_slide()
 
 func add_node(node):
 	add_child(node)

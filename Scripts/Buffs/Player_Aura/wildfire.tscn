@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhrrffncykf6r"]
 
-[ext_resource type="Script" uid="uid://dfmdvxklj1h8e" path="res://Scripts/Buffs/Player_Aura/slow_aura.gd" id="1_lqvec"]
+[ext_resource type="Script" uid="uid://dfmdvxklj1h8e" path="res://Scripts/Buffs/Player_Aura/wildfire.gd" id="1_lqvec"]
 
 [node name="AuraBuff2" type="Node3D" unique_id=245252579]
 script = ExtResource("1_lqvec")

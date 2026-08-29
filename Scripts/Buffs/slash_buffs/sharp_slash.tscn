@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bmrgj8vgyajn7"]
+
+[ext_resource type="Script" uid="uid://de5gsu6478xid" path="res://Scripts/Buffs/slash_buffs/sharp_slash.gd" id="1_bjxyh"]
+
+[node name="SlashBuff1" type="Node3D" unique_id=1378845748]
+script = ExtResource("1_bjxyh")

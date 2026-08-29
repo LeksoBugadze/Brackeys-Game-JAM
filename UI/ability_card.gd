@@ -31,5 +31,7 @@ func get_choice_info(title_arg:String,description_arg:String, texture:Texture2D)
 
 func add_ability():
 	player.add_node(func_dic[title_var].instantiate())
+	player.current_keys.push_back(title_var)
+	print(player.current_keys)
 	upgrade_selected.emit()
 	

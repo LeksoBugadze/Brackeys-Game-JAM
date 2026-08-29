@@ -4,9 +4,11 @@ extends Area3D
 @export var zone_radius: float = 5.0
 @onready var damage_spehere: CollisionShape3D = $DamageSpehere
 @onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
+@onready var timer: Timer = $Timer
 
-var aura_buff1 = preload("res://Scripts/Buffs/Player_Aura/Aura_buff.tscn")
-var aura_buff2 = preload("res://Scripts/Buffs/Player_Aura/Aura_buff2.tscn")
+
+var aura_buff1 = preload("res://Scripts/Buffs/Player_Aura/inferno.tscn")
+var aura_buff2 = preload("res://Scripts/Buffs/Player_Aura/wildfire.tscn")
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("aura_buff1"):

@@ -1,0 +1,39 @@
+[gd_resource type="VisualShader" format=3 uid="uid://djhtrsm38gpc5"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_1rhj7"]
+expanded_output_ports = [0]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_lghct"]
+parameter_name = "Summoning_Cirlce_Color"
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_nt8ga"]
+
+[sub_resource type="Gradient" id="Gradient_n6cmf"]
+offsets = PackedFloat32Array(0, 0.5168539, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.1882353, 0.1882353, 0.1882353, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f4nwb"]
+gradient = SubResource("Gradient_n6cmf")
+use_hdr = true
+fill_from = Vector2(0.47863248, 1)
+fill_to = Vector2(0.43589744, 0)
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_8doom"]
+texture = SubResource("GradientTexture2D_f4nwb")
+texture_type = 1
+
+[resource]
+flags/unshaded = true
+flags/shadows_disabled = true
+flags/ambient_light_disabled = true
+flags/fog_disabled = true
+nodes/fragment/0/position = Vector2(416, 144)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_1rhj7")
+nodes/fragment/2/position = Vector2(-560, 240)
+nodes/fragment/3/node = SubResource("VisualShaderNodeColorParameter_lghct")
+nodes/fragment/3/position = Vector2(16, -80)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatOp_nt8ga")
+nodes/fragment/5/position = Vector2(-20, 580)
+nodes/fragment/6/node = SubResource("VisualShaderNodeTexture_8doom")
+nodes/fragment/6/position = Vector2(-580, 780)
+nodes/fragment/connections = PackedInt32Array(3, 0, 0, 0, 5, 0, 0, 1, 2, 1, 5, 0, 6, 0, 5, 1)

@@ -8,8 +8,8 @@ extends Node3D
 @onready var collision_shape_3d: CollisionShape3D = $Area3D/CollisionShape3D
  
 
-var slash_damagebuff = preload("res://Scripts/Buffs/slash_buffs/Slash_buff1.tscn")
-var slash_RDCbuff = preload("res://Scripts/Buffs/slash_buffs/Slash_buff2.tscn")
+var slash_damagebuff = preload("res://Scripts/Buffs/slash_buffs/sharp_slash.tscn")
+var slash_RDCbuff = preload("res://Scripts/Buffs/slash_buffs/sweep.tscn")
 
 
 func _physics_process(_delta: float) -> void:
@@ -19,6 +19,7 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("slash_damage"):
 		print("slash damage")
 		add_child(slash_damagebuff.instantiate())
+		
 	if Input.is_action_just_pressed("slash_rdc"):
 		print("slash rdc")
 		add_child(slash_RDCbuff.instantiate())

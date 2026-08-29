@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cqry4g0jprl87"]
 
 [ext_resource type="Script" uid="uid://27joiqw3fw60" path="res://UI/ability_card.gd" id="1_q0wgs"]
+[ext_resource type="FontFile" uid="uid://e4to3ei544os" path="res://UI/fonts/Deutsch.ttf" id="2_ecnio"]
 [ext_resource type="Texture2D" uid="uid://b5grd5d5wv50g" path="res://UI/Icons/blood_spell.png" id="2_ri4tv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
@@ -16,10 +17,12 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_6l7je"]
+font = ExtResource("2_ecnio")
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xm5fh"]
+font = ExtResource("2_ecnio")
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 

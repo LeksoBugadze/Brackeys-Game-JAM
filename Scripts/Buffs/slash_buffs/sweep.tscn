@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bkcflps506g7"]
 
-[ext_resource type="Script" uid="uid://3yimfpf1xs3i" path="res://Scripts/Buffs/slash_buffs/slashRDC_buff.gd" id="1_j5yi3"]
+[ext_resource type="Script" uid="uid://3yimfpf1xs3i" path="res://Scripts/Buffs/slash_buffs/sweep.gd" id="1_j5yi3"]
 
 [node name="SlashBuff2" type="Node3D" unique_id=1720890801]
 script = ExtResource("1_j5yi3")
