@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://f1yvu0rf1e7s"]
+
+[ext_resource type="Script" uid="uid://c6qovukp4uo5y" path="res://UI/ending/end_screen.gd" id="1_t3s0e"]
+[ext_resource type="FontFile" uid="uid://e4to3ei544os" path="res://UI/fonts/Deutsch.ttf" id="2_g38kh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqskb"]
+bg_color = Color(0.6117647, 0.08627451, 0.22745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhunq"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngoy5"]
+bg_color = Color(0.9272345, 0.424629, 0.33820042, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsy1u"]
+bg_color = Color(0.9254902, 0.42352942, 0.3372549, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s6uxk"]
+
+[node name="EndScreen" type="Control" unique_id=1347008407]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t3s0e")
+
+[node name="Panel" type="Panel" parent="." unique_id=1642556067]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqskb")
+
+[node name="Label" type="Label" parent="." unique_id=759569144]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -398.5
+offset_top = -166.5
+offset_right = 398.5
+offset_bottom = 166.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_g38kh")
+theme_override_font_sizes/font_size = 33
+text = "Thank you for Playing our game!
+Credits: Thanks JHawk For embient music, Thanks www.kenney.nl for sound effects 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=2110694712]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -31.0
+offset_right = 168.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029506527, 0.029506546, 0.029506704, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_g38kh")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_bhunq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ngoy5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gsy1u")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s6uxk")
+text = "Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_buttonmainmenu_pressed"]

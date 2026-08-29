@@ -27,3 +27,8 @@ func _on_buttonquit_pressed() -> void:
 	ButtonClick.play()
 	await ButtonClick.finished
 	get_tree().quit()
+
+
+func _on_buttontutorial_pressed() -> void:
+	ButtonClick.play()
+	get_tree().change_scene_to_file("res://UI/Tutorial/Tutorial_screen.tscn")
