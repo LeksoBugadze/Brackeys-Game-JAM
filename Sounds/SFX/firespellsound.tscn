@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dtjoyub2makcm"]
+
+[ext_resource type="AudioStream" uid="uid://bv1inqthmdg08" path="res://Sounds/SFX/Fire Spell Impact 1.wav" id="1_flxpk"]
+
+[node name="Firespellsound" type="AudioStreamPlayer" unique_id=1326279160]
+stream = ExtResource("1_flxpk")
+volume_db = -16.0
+bus = &"SFX"

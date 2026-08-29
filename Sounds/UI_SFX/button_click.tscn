@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ci2oklp3kvgur"]
+
+[ext_resource type="AudioStream" uid="uid://dfvkwhmh082s1" path="res://Sounds/UI_SFX/buttons.ogg" id="1_giera"]
+
+[node name="ButtonClick" type="AudioStreamPlayer" unique_id=1852464369]
+stream = ExtResource("1_giera")
+volume_db = -16.0
+bus = &"SFX"

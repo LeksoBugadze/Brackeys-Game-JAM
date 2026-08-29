@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bwha61sj7kwne"]
+
+[ext_resource type="AudioStream" uid="uid://cbvkfurjwtcnw" path="res://Sounds/UI_SFX/upgrades.ogg" id="1_h4xui"]
+
+[node name="UpgradeButtonClick" type="AudioStreamPlayer" unique_id=1932847592]
+stream = ExtResource("1_h4xui")
+volume_db = -16.0
+bus = &"SFX"

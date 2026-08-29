@@ -28,6 +28,9 @@ var wave_count = 1
 
 func _ready() -> void:
 	spawn_point.add_child(angel.instantiate())
+	Menumusic.stop()
+	Battlemusic.play()
+	canvas_layer.add_child(upgrade_scene.instantiate())
 	
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):

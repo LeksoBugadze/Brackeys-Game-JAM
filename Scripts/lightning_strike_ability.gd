@@ -37,4 +37,5 @@ func shoot(enemy)->Area3D:
 
 func _on_proj_hit(hit_node):
 	if hit_node.has_method("take_damage"):
+		Lightingsound.play()
 		hit_node.take_damage(damage)
