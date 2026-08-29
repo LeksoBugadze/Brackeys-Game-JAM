@@ -10,10 +10,12 @@ func _ready() -> void:
 func _on_buttonResume_pressed() -> void:
 	Menumusic.stop()
 	Battlemusic.play()
+	ButtonClick.play()
 	get_tree().paused = false
 	pause_menu.visible = false
 
 
 func _on_buttonMenu_pressed() -> void:
+	ButtonClick.play()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://UI/start/Start_menu.tscn")

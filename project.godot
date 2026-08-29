@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 Menumusic="*uid://ctxerrlpdxylf"
 Battlemusic="*uid://bl2e53vaondea"
+ButtonClick="*uid://ci2oklp3kvgur"
+UpgradeButtonClick="*uid://bwha61sj7kwne"
 
 [display]
 

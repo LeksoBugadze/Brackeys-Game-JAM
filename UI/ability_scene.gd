@@ -52,6 +52,8 @@ func _input(event: InputEvent) -> void:
 	var mousePosition = get_global_mouse_position()	
 	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		print("pressed the left click")
+		UpgradeButtonClick.play()
 		for node in h_box_container.get_children():
 			if node.get_global_rect().has_point(mousePosition):
 				node.add_ability()
