@@ -5,3 +5,4 @@
 [node name="ButtonClick" type="AudioStreamPlayer" unique_id=1852464369]
 stream = ExtResource("1_giera")
 volume_db = -16.0
+bus = &"SFX"

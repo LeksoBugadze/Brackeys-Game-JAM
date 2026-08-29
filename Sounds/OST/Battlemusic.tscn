@@ -6,3 +6,4 @@
 process_mode = 3
 stream = ExtResource("1_yro57")
 autoplay = true
+bus = &"music"

@@ -39,4 +39,5 @@ func shoot()->CharacterBody3D:
 
 func _on_proj_hit(hit_node):
 	if hit_node.has_method("take_damage"):
+		Firespellsound.play()
 		hit_node.take_damage(damage)

@@ -11,7 +11,8 @@ func _on_buttonstart_pressed() -> void:
 
 func _on_buttonsettings_pressed() -> void:
 	ButtonClick.play()
-	pass
+	get_tree().change_scene_to_file("res://UI/settings/settings_menu.tscn")
+	
 
 
 func _on_buttonquit_pressed() -> void:

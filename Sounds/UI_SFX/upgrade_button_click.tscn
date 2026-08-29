@@ -5,3 +5,4 @@
 [node name="UpgradeButtonClick" type="AudioStreamPlayer" unique_id=1932847592]
 stream = ExtResource("1_h4xui")
 volume_db = -16.0
+bus = &"SFX"

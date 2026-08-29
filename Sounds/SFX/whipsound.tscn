@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://xyv0u262t4fh"]
+
+[ext_resource type="AudioStream" uid="uid://c037c37lu8xau" path="res://Sounds/SFX/whip.wav" id="1_1t2fl"]
+
+[node name="Whipsound" type="AudioStreamPlayer" unique_id=837566002]
+stream = ExtResource("1_1t2fl")
+volume_db = -10.0
+bus = &"SFX"

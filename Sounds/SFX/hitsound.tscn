@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d2i5ncdq8cwf4"]
+
+[ext_resource type="AudioStream" uid="uid://dpwv4socgv6vb" path="res://Sounds/SFX/Hit.wav" id="1_6yue3"]
+
+[node name="Hitsound" type="AudioStreamPlayer" unique_id=486428734]
+stream = ExtResource("1_6yue3")
+volume_db = -16.0
+bus = &"SFX"

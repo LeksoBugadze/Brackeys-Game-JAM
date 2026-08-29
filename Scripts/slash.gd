@@ -31,4 +31,5 @@ func player_hit() -> void:
 			body.take_damage(slash_damage)
 
 func _on_timer_timeout() -> void:
+	Whipsound.play()
 	player_hit()

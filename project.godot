@@ -15,12 +15,21 @@ run/main_scene="uid://b8u3drwchyovr"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://dur43w3mv6j2f"
+
 [autoload]
 
 Menumusic="*uid://ctxerrlpdxylf"
 Battlemusic="*uid://bl2e53vaondea"
 ButtonClick="*uid://ci2oklp3kvgur"
 UpgradeButtonClick="*uid://bwha61sj7kwne"
+Firespellsound="*uid://dtjoyub2makcm"
+Hitsound="*uid://d2i5ncdq8cwf4"
+Lightingsound="*uid://gy74h6ok5kpx"
+Whipsound="*uid://xyv0u262t4fh"
+AudioManager="*uid://y3ewtfky8ir6"
 
 [display]
 

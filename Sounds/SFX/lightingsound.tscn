@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://gy74h6ok5kpx"]
+
+[ext_resource type="AudioStream" uid="uid://efy2fk2q4aye" path="res://Sounds/SFX/Lightning Spell Impact 3.wav" id="1_3kv1o"]
+
+[node name="Lightingsound" type="AudioStreamPlayer" unique_id=1837499594]
+stream = ExtResource("1_3kv1o")
+volume_db = -16.0
+bus = &"SFX"
