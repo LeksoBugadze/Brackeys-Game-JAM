@@ -10,19 +10,22 @@ var path: String = "user://game.cfg"
 
 
 func _ready() -> void:
-	AudioManager.setup_sliders(music, sfx)	
+	AudioManager.setup_sliders(music, sfx)
 
-	
-	
-
-func _on_music_value_changed(value: float) -> void:
+func save_music_slider(value: float)->void:
 	var db_value = linear_to_db(value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("music"), db_value)
+	
+func save_sfx_slider(value: float)->void:
+	var db_value = linear_to_db(value)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), db_value)
+
+func _on_music_value_changed(value: float) -> void:
+	save_music_slider(value)
 
 
 func _on_sfx_value_changed(value: float) -> void:
-	var db_value = linear_to_db(value)
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), db_value)
+	save_sfx_slider(value)
 
 
 func _on_savebutton_pressed() -> void:
