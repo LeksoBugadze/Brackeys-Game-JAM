@@ -3,6 +3,7 @@ extends Control
 @onready var player = get_tree().get_nodes_in_group("player")[0]
 @onready var h_box_container: HBoxContainer = $HBoxContainer
 @onready var current_scene:Node3D = get_tree().current_scene
+@onready var spawn_point = get_tree().current_scene.get_node("spawn_point").get_children()[0]
 
 var buff_card = preload("res://UI/buff_card.tscn")
 var blood_spell_img = preload("res://UI/Icons/blood_spell.png")
@@ -11,6 +12,7 @@ var slash_img = preload("res://UI/Icons/slash.png")
 var fire_aura_img = preload("res://UI/Icons/fire_aura.png")
 
 var save_title
+var clickable = true
 
 var title_keys = [
 	"Phasing blood","Spellslinger","Thunderclap",
@@ -76,8 +78,9 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		for node in h_box_container.get_children():
 			if not event.pressed:
-				if node.get_global_rect().has_point(mousePosition):
+				if node.get_global_rect().has_point(mousePosition) && clickable:
 					node.add_ability()
+					clickable = false
 
 
 func get_possible_choices():
@@ -92,6 +95,7 @@ func get_possible_choices():
 
 func _quit():
 	get_tree().paused = false
+	spawn_point.queue_free()
 	current_scene.current_enemy_count = 0
 	current_scene.start_wave()
 	print("triggered")

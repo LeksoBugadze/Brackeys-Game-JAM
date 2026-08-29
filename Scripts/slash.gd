@@ -13,7 +13,7 @@ var slash_RDCbuff = preload("res://Scripts/Buffs/slash_buffs/sweep.tscn")
 
 
 func _physics_process(_delta: float) -> void:
-	rotation.y = get_parent().get_node_or_null("MeshInstance3D").rotation.y
+	rotation.y = get_parent().get_node_or_null("main_character").rotation.y
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("slash_damage"):

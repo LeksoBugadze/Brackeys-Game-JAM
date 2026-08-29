@@ -75,7 +75,6 @@ func add_ability():
 	##delete buff from possible choices
 	player.current_buff_keys.push_back(title_var)
 	margin_container_4.visible = !margin_container_4.visible
-	scale *= 1.2
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.5).timeout
 	upgrade_selected.emit()
 	

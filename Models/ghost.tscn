@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://btlwn5pe7wc28"]
+
+[ext_resource type="PackedScene" uid="uid://clvsdhtsskw2y" path="res://Models/ghost.glb" id="1_o8q4c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mmp38"]
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0.9137255, 0, 0.13725491, 1)
+grow = true
+grow_amount = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8q4c"]
+next_pass = SubResource("StandardMaterial3D_mmp38")
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="ghost" unique_id=180393295 instance=ExtResource("1_o8q4c")]
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(245587159) index="0" unique_id=1311525637]
+bones/0/position = Vector3(-0.019457469, 0.065820344, -1.3646302)
+bones/0/rotation = Quaternion(0.39034724, 0.06443001, -0.012710308, 0.9183226)
+bones/1/rotation = Quaternion(-0.15930782, -0.048261937, 0.019726546, 0.9858512)
+bones/4/position = Vector3(1.3206245, 2.6011243, -0.02263537)
+bones/4/rotation = Quaternion(-0.30556226, 0.6635991, 0.4347634, -0.5265443)
+bones/5/rotation = Quaternion(0.065596074, -0.44732884, 0.0032008667, 0.89195514)
+bones/12/position = Vector3(-1.3206247, 2.6011252, -0.022636607)
+bones/12/rotation = Quaternion(-0.06803333, 0.7298941, 0.57465976, 0.36385748)
+bones/13/rotation = Quaternion(0.25311878, -6.600069e-05, 0.16314295, 0.9535803)
+
+[node name="Cube" parent="Armature/Skeleton3D" index="0" unique_id=1555375537]
+surface_material_override/0 = SubResource("StandardMaterial3D_o8q4c")

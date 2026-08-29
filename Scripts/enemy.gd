@@ -3,8 +3,10 @@ extends CharacterBody3D
 var movement_speed :float = 2.5
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var damage_range: Area3D = $damageRange
-@onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
+@onready var mesh_instance_3d: MeshInstance3D = $ghost/Armature/Skeleton3D/Cube
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
+@onready var animation_player: AnimationPlayer = $ghost/AnimationPlayer
+
 
 var damage_flash_material = preload("res://Materials/damage_flash_material.tres")
 var summoning_circle = preload("res://VFX_etc_summon/summoning_circle.tscn")
@@ -34,13 +36,14 @@ func _process(_delta: float) -> void:
 	
 	navigation_agent_3d.set_target_position(player.global_position)
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if knocked:
 		velocity = -transform.basis.z * 500
 		await get_tree().create_timer(0.2).timeout
 		knocked = false
 	
 	if chase:
+		animation_player.play("Chase")
 		for body in damage_range.get_overlapping_bodies():
 			if body.is_in_group("player") && can_attack:
 				body.take_damage(10.0)
@@ -51,6 +54,11 @@ func _physics_process(_delta: float) -> void:
 		
 		var next_position:Vector3 = navigation_agent_3d.get_next_path_position()
 		velocity = global_position.direction_to( next_position ) * movement_speed
+	
+		var direction = player.global_position - global_position
+		var target_angle = atan2(direction.x, direction.z)
+		mesh_instance_3d.rotation.y = lerp_angle(mesh_instance_3d.rotation.y, target_angle, 10 * delta)
+		
 		move_and_slide()
 	
 func _on_timer_timeout() -> void:

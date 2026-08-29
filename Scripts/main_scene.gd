@@ -8,18 +8,13 @@ extends Node3D
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var canvas_layer_2: CanvasLayer = $CanvasLayer2
 @onready var wave_count_label: Label = $CanvasLayer/Wave_count
+@onready var spawn_point: Marker3D = $spawn_point
 
+var pause_menu = preload("res://UI/pause/Pause_menu.tscn")
+
+var demon = preload("res://Models/demon.tscn")
+var angel = preload("res://Models/angel.tscn")
 var enemy = preload("res://Scenes/Enemy.tscn")
-
-var upgrade_scene = preload("res://UI/ability_scene.tscn")
-var buff_scene = preload("res://UI/select_buff.tscn")
-
-var blood_spell = preload("res://Scenes/blood_spell_ability.tscn")
-var lightning_spell = preload("res://Scenes/lightning_strike_ability.tscn")
-var player_aura = preload("res://Fire_Aura_VFX/player_aura.tscn");
-var player_slash = preload("res://Slash_VFX/slash_ability.tscn")
-var pause_meny = preload("res://UI/pause/Pause_menu.tscn")
-
 
 var enemy_count = 3
 var enemy_pos_arr = []
@@ -32,29 +27,12 @@ var wave_count = 1
 
 
 func _ready() -> void:
-	canvas_layer.add_child(upgrade_scene.instantiate())
+	spawn_point.add_child(angel.instantiate())
 	
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("test_start_new_wave"):
-		current_enemy_count = 0
-		start_wave()
-		
-	if Input.is_action_just_pressed("add_blood_spell"):
-		player.add_child(blood_spell.instantiate())
-		
-	if Input.is_action_just_pressed("add_lightning_spell"):
-		player.add_child(lightning_spell.instantiate())
-		
-	if Input.is_action_just_pressed("aura_enable"):
-		player.add_child(player_aura.instantiate())
-			
-	if Input.is_action_just_pressed("slash_hit"):
-		player.get_node_or_null("MeshInstance3D").add_child(player_slash.instantiate())
-		
 	if Input.is_action_just_pressed("pause"):
 		get_tree().paused = true
-		canvas_layer_2.add_child(pause_meny.instantiate())
-		
+		canvas_layer_2.add_child(pause_menu.instantiate())
 	
 	time_label.text = str(int(timer.time_left))
 	if cleared == false:
@@ -108,16 +86,12 @@ func _on_timer_timeout() -> void:
 	timer.stop()
 	for child_enemy in enemy_container.get_children():
 		child_enemy.free()
-		
-	cleared = true
 	if wave_count % 2 == 0:
-		canvas_layer.add_child(buff_scene.instantiate())
-	elif wave_count % 3 == 0:
-		canvas_layer.add_child(upgrade_scene.instantiate())
-	else:
-		current_enemy_count = 0
-		start_wave()
-		
+		spawn_point.add_child(demon.instantiate())
+	elif wave_count % 2 == 1:
+		spawn_point.add_child(angel.instantiate())
+	cleared = true
+	
 func update_wave_counter():
 	wave_count_label.text = str(wave_count) + "/" + str(max_wave)
 	

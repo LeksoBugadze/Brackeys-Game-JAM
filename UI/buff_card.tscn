@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://snbfpt7inx1v" path="res://UI/buff_card.gd" id="2_xtclr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
-bg_color = Color(0.0006938975, 0.0006938978, 0.00069389684, 0.39215687)
+bg_color = Color(0.11119685, 0.11119685, 0.11119678, 0.39215687)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -35,6 +35,8 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Panel" type="Panel" unique_id=1983787965]
 custom_minimum_size = Vector2(200, 250)
+offset_right = 200.0
+offset_bottom = 250.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
 script = ExtResource("2_xtclr")
 

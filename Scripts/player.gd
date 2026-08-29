@@ -2,7 +2,8 @@ extends CharacterBody3D
 
 @onready var health_bar: ProgressBar = $CanvasLayer/healthBar
 @onready var health_label: Label = $CanvasLayer/healthLabel
-@onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
+@onready var mesh_instance_3d = $main_character
+@onready var animation_player: AnimationPlayer = $main_character/AnimationPlayer
 
 const SPEED = 3.0
 const JUMP_VELOCITY = 4.5
@@ -32,9 +33,11 @@ func _physics_process(delta: float) -> void:
 		
 		if direction:
 			last_direction = direction
+			animation_player.play("Run")
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
 		else:
+			animation_player.stop()
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 			

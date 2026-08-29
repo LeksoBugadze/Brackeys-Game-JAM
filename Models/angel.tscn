@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://dbwh80hars3d"]
+
+[ext_resource type="PackedScene" uid="uid://dpifimehgb88p" path="res://Models/angel.glb" id="1_hsovi"]
+[ext_resource type="Script" uid="uid://bv5lniiptwdwm" path="res://Models/angel.gd" id="2_ghdhx"]
+[ext_resource type="FontFile" uid="uid://e4to3ei544os" path="res://UI/fonts/Deutsch.ttf" id="3_rjr8t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsovi"]
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0.9137255, 0.7882353, 0.13725491, 1)
+grow = true
+grow_amount = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjr8t"]
+next_pass = SubResource("StandardMaterial3D_hsovi")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_g4v7s"]
+height = 4.0
+radius = 9.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0, 0, 0, 0.39215687)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_yf5fn"]
+font = ExtResource("3_rjr8t")
+font_size = 35
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="angel" unique_id=94407506 instance=ExtResource("1_hsovi")]
+script = ExtResource("2_ghdhx")
+
+[node name="Cube" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(2134245495) index="0" unique_id=110371605]
+material_overlay = SubResource("StandardMaterial3D_rjr8t")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2" unique_id=1351149630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.959499, -0.022722721)
+light_color = Color(0.98024875, 1, 0.6522288, 1)
+light_energy = 10.0
+omni_range = 17.27231
+
+[node name="Area3D" type="Area3D" parent="." index="3" unique_id=604216271]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1765090064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_g4v7s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="4" unique_id=1742051429]
+
+[node name="Label" type="Label" parent="CanvasLayer" index="0" unique_id=1407358031]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -64.0
+offset_right = 140.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4v7s")
+text = "E to Talk"
+label_settings = SubResource("LabelSettings_yf5fn")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

@@ -3,6 +3,7 @@ extends Control
 @onready var h_box_container: HBoxContainer = $HBoxContainer
 @onready var current_scene:Node3D = get_tree().current_scene
 @onready var player = get_tree().get_nodes_in_group("player")[0]
+@onready var spawn_point = get_tree().current_scene.get_node("spawn_point").get_children()[0]
 
 var upgrade_card = preload("res://UI/ability_card.tscn")
 
@@ -58,6 +59,7 @@ func _input(event: InputEvent) -> void:
 
 func _quit():
 	get_tree().paused = false
+	spawn_point.queue_free()
 	current_scene.current_enemy_count = 0
 	current_scene.start_wave()
 	print("triggered")
