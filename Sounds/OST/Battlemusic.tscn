@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bl2e53vaondea"]
+
+[ext_resource type="AudioStream" uid="uid://bmwf75j42400i" path="res://Sounds/OST/Battle.ogg" id="1_yro57"]
+
+[node name="Battlemusic" type="AudioStreamPlayer" unique_id=14839437]
+stream = ExtResource("1_yro57")
+autoplay = true

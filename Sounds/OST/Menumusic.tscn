@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ctxerrlpdxylf"]
+
+[ext_resource type="AudioStream" uid="uid://b2wplqlqy77jq" path="res://Sounds/OST/Element.mp3" id="1_3loiu"]
+
+[node name="Menumusic" type="AudioStreamPlayer" unique_id=600379779]
+stream = ExtResource("1_3loiu")
+volume_db = -23.111
+autoplay = true

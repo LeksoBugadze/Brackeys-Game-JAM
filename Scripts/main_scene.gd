@@ -32,6 +32,8 @@ var wave_count = 1
 
 
 func _ready() -> void:
+	Menumusic.stop()
+	Battlemusic.play()
 	canvas_layer.add_child(upgrade_scene.instantiate())
 	
 func _physics_process(_delta: float) -> void:

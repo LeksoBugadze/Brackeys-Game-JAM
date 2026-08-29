@@ -2,7 +2,14 @@ extends Control
 
 @onready var pause_menu: Control = $"."
 
+
+func _ready() -> void:
+	Battlemusic.stop()
+	Menumusic.play()
+
 func _on_buttonResume_pressed() -> void:
+	Menumusic.stop()
+	Battlemusic.play()
 	get_tree().paused = false
 	pause_menu.visible = false
 

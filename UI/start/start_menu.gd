@@ -1,5 +1,8 @@
 extends Node
 
+func _ready() -> void:
+	Battlemusic.stop()
+	Menumusic.play()
 
 func _on_buttonstart_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
