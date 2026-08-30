@@ -25,3 +25,10 @@ Despite that, this has been one of our most satisfying game jams. For this event
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0a7142b8-468f-4cad-979a-4ddd63f6b8e3" />
 
 <img width="2547" height="1434" alt="image" src="https://github.com/user-attachments/assets/2c2c33c7-0a99-4e3f-86da-87c86246c420" />
+
+# Installation You can play our Game in Web!
+You can play Hellbound directly in your browser on itch.io  no installation required!
+
+If you'd prefer to play it locally, you can also download and install the game from the same page.
+
+https://leksobugadze.itch.io/hellbound
