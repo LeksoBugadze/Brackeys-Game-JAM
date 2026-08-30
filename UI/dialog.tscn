@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b5ky1soqympk2"]
+
+[ext_resource type="FontFile" uid="uid://e4to3ei544os" path="res://UI/fonts/Deutsch.ttf" id="1_f8kg0"]
+[ext_resource type="Script" uid="uid://dtj4un5la0to1" path="res://UI/dialog.gd" id="2_mewqi"]
+
+[node name="Control" type="Control" unique_id=384834716]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_mewqi")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2004512659]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.18717614, 0.18717614, 0.18717614, 0.39215687)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=394585571]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -448.0
+offset_top = -240.0
+offset_right = 448.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="Label" type="Label" parent="ColorRect2" unique_id=2044965882]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 872.0
+offset_bottom = 176.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_f8kg0")
+theme_override_font_sizes/font_size = 35
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="." unique_id=1344887642]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 552.0
+offset_right = 1009.0
+offset_bottom = 600.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_f8kg0")
+theme_override_font_sizes/font_size = 35
+text = "Space to continue"

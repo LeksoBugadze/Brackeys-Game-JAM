@@ -15,22 +15,24 @@ var pause_menu = preload("res://UI/pause/Pause_menu.tscn")
 var demon = preload("res://Models/demon.tscn")
 var angel = preload("res://Models/angel.tscn")
 var enemy = preload("res://Scenes/Enemy.tscn")
+var dialog = preload("res://UI/dialog.tscn")
 
 var enemy_count = 3
 var enemy_pos_arr = []
 var current_enemy_count = 0
-var wave_time :float = 0.0
+var wave_time :float = 15.0
 var cleared = true
 
 var max_wave = 10
 var wave_count = 1
 
-
 func _ready() -> void:
 	spawn_point.add_child(angel.instantiate())
+	var dialog_inst = dialog.instantiate()
+	canvas_layer.add_child(dialog_inst)
+	dialog_inst.write_dialog("Hello mortal, I can help you escape this place, you need to survive for 10 waves, here take this power and make sure not to trust anyone here")
 	Menumusic.stop()
 	Battlemusic.play()
-	canvas_layer.add_child(upgrade_scene.instantiate())
 	
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
@@ -46,17 +48,15 @@ func _physics_process(_delta: float) -> void:
 			
 func start_wave():
 	update_wave_counter()
-	wave_time += 5
+	wave_time += 5.0
 	if cleared == true:
 		timer.wait_time = wave_time
 		timer.start()
 		while enemy_count>current_enemy_count:
 			add_enemy_position()
-		print(enemy_pos_arr)
-		
+			
 		if !enemy_pos_arr.is_empty():
 			spawn_enemies(enemy_pos_arr)
-		print(enemy_pos_arr)
 		wave_count+=1
 	cleared = false
 
@@ -86,9 +86,28 @@ func get_random_point(area)-> Vector3:
 	return Vector3(xPos,1.0,zPos)
 
 func _on_timer_timeout() -> void:
+	var dialog_inst = dialog.instantiate()
 	timer.stop()
 	for child_enemy in enemy_container.get_children():
 		child_enemy.free()
+	
+	if wave_count == 11:
+		canvas_layer.add_child(dialog_inst)
+		dialog_inst.last_dialog_func()
+		spawn_point.add_child(demon.instantiate())
+	
+	if wave_count == 2:
+		canvas_layer.add_child(dialog_inst)
+		dialog_inst.write_dialog("Trying to escape hell? Very amusing, you know what here I'll even 'help' you, lets see how far you can go")
+	
+	if wave_count == 3:
+		canvas_layer.add_child(dialog_inst)
+		dialog_inst.write_dialog("That devil he cursed you didn't he, dont worry hold out till wave 5 and I'll heal your wounds")
+	
+	if wave_count == 5:
+		canvas_layer.add_child(dialog_inst)
+		dialog_inst.write_dialog("As I promised, come let me heal you ")
+		
 	if wave_count % 2 == 0:
 		spawn_point.add_child(demon.instantiate())
 	elif wave_count % 2 == 1:

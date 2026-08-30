@@ -13,14 +13,14 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	for body in area_3d.get_overlapping_bodies():
-		if body.is_in_group("player"):
+	for body in area_3d.get_overlapping_bodies() :
+		if body.is_in_group("player") && get_tree().paused == false:
 			label.visible = true
 			
 
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") && get_tree().paused == false:
 		canvas_layer.add_child(buff_scene.instantiate())
 	
 		

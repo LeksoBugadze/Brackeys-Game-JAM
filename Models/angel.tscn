@@ -32,9 +32,10 @@ outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [node name="angel" unique_id=94407506 instance=ExtResource("1_hsovi")]
+process_mode = 3
 script = ExtResource("2_ghdhx")
 
-[node name="Cube" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(2134245495) index="0" unique_id=110371605]
+[node name="Cube" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(2146815891) index="0" unique_id=1746152016]
 material_overlay = SubResource("StandardMaterial3D_rjr8t")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="2" unique_id=1351149630]
@@ -53,6 +54,7 @@ shape = SubResource("CylinderShape3D_g4v7s")
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="4" unique_id=1742051429]
 
 [node name="Label" type="Label" parent="CanvasLayer" index="0" unique_id=1407358031]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

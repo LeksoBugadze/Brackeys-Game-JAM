@@ -102,9 +102,6 @@ shape = SubResource("BoxShape3D_g4v7s")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.5, -16)
 shape = SubResource("BoxShape3D_g4v7s")
 
-[node name="Timer" type="Timer" parent="." unique_id=49532804]
-wait_time = 10.0
-
 [node name="enemyContainer" type="Node3D" parent="." unique_id=776129670]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2020068672]
@@ -142,5 +139,8 @@ vertical_alignment = 1
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=106273002]
 
 [node name="spawn_point" type="Marker3D" parent="." unique_id=1366452809]
+
+[node name="Timer" type="Timer" parent="." unique_id=49532804]
+wait_time = 10.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

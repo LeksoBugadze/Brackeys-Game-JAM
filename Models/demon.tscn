@@ -33,6 +33,7 @@ outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [node name="demon" unique_id=260307171 instance=ExtResource("1_7ebtw")]
+process_mode = 3
 script = ExtResource("2_q4wk4")
 
 [node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(388827000) index="0" unique_id=1154180391]
@@ -62,6 +63,7 @@ shape = SubResource("CylinderShape3D_5lpdt")
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="4" unique_id=1867260171]
 
 [node name="Label" type="Label" parent="CanvasLayer" index="0" unique_id=486787081]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

@@ -4,20 +4,10 @@ extends Node3D
 @onready var cooldown: Timer = $cooldown 
 
 var blood_spell_vfx = preload("res://Fireball_VFX/blood_spell.tscn")
-var spellslinger_buff = preload("res://Scripts/Buffs/Blood_Spell/spellslinger.tscn")
-var phasing_blood_buff = preload("res://Scripts/Buffs/Blood_Spell/phasing_blood.tscn")
 
 var hit_all_targets = false
 var can_shoot = false
 var damage : float = 50.0
-
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("buff_n_1"):
-		add_child(spellslinger_buff.instantiate())
-	
-	if Input.is_action_just_pressed("buff_n_2"):
-		add_child(phasing_blood_buff.instantiate())
-	
 
 func _on_timer_timeout() -> void:
 	can_shoot = true
